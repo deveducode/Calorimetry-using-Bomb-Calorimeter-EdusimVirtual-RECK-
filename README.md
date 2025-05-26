@@ -1,20 +1,20 @@
 ## Introduction
 
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | <b> Chemical Science
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Lab | <b> Chemical Science Lab
+<b> Experiment|     <b> Bomb Calorimeter
 
 ### About the Experiment 
 
-Fill a brief description of this experiment here
+A bomb calorimeter is used to measure the heat of combustion of a substance. The sample is burned in a high-pressure oxygen-filled chamber, and the heat released is absorbed by surrounding water. The temperature change helps calculate the energy content of the sample.
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+<b>Name of Developer | <b> Dr. Ravish Rajput Sir 
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<b> Institute | <b>  Rajiya Engineering College Kannauj U.P.
+<b> Email id|     <b>  ravishrajput@reck.ac.in
+<b> Department |  Department of Applied Science and Humanities
 
 ### Contributors List
 
