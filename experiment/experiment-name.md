@@ -1,1 +1,1 @@
-## Experiment name
+## Calorimetry using Bomb Calorimeter 
