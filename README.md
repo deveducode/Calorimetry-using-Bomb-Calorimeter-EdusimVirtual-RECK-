@@ -3,7 +3,7 @@
 
 <b>Discipline | <b> Chemical Science
 :--|:--|
-<b> Lab | <b> Chemical Science Lab
+<b> Lab | <b> Chemical Engineering Lab
 <b> Experiment|     <b> Bomb Calorimeter
 
 ### About the Experiment 
