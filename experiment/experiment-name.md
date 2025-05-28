@@ -1,3 +1,3 @@
-## Calorimetry using Bomb Calorimeter by devendra and hari
+## Calorimetry using Bomb Calorimeter 
 
 
