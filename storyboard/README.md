@@ -2,43 +2,48 @@
 
 
 
-## Storyboard
+## Storyboard: Calorimetry Using Bomb Calorimeter
 
-Delete this line before submission : The core principle of storyboarding is to make the lab/experiment documentation elaborated in a manner that it makes easy for any person (developer/domain and non domain faculty/student) to understand and develop the lab/experiment.
+This storyboard outlines the flow and structure of the virtual lab experiment designed to teach students how to measure the heat of combustion using a bomb calorimeter. It provides a step-by-step narrative that makes it easy for developers, instructors, and students to understand and visualize the experiment, its objectives, and its user interactions within the simulation environment.
 
-Experiment 1: Name of the Experiment
+Experiment 1: calorimetry Using Bomb caloerimeter
 
 ### 1. Story Outline
+This experiment stimulates the process of measuring the heat of combustion of a substance using a bomb calorimeter. The user is guided step-by-step from theoretical understanding to practical calculation using a virtual environment. The goal is to help students visualize the working mechanism of a bomb calorimeter, understand the relation between temperature change and heat, and compute the calorific value of a given sample.
 
-Describe outline here ( Guide : The proposer should first draft the story outline for the proposed outline. This could be 2 or 3 paragraphs.)
+The simulation involves setting input parameters like sample type, mass, and water equivalent, followed by starting a combustion process virtually. The system provides real-time temperature data, helping users connect theoretical knowledge with actual data interpretation.
+
 
 ### 2. Story
+The experiment begins by presenting the user with the theoretical background of calorimetry and the bomb calorimeter. After understanding the principles, the user navigates to a simulator where they can choose a fuel sample and input related values such as sample mass and water equivalent.
 
-Describe the Story introduction here (Guide : The next step is to write a story. Story should be a brief logical description in simple English. It should talk about the overall execution of the experiment in a simplified manner. (should not include any equations/ drawings). The story should include the following points) )
+The simulator then triggers the combustion process, during which the temperature rise is plotted on a graph in real-time. This helps the student visualize the energy release. Once the process is completed, the user is prompted to calculate the heat released using the final temperature. The results are then used to determine the heat of combustion. A small quiz at the end tests the user's understanding and reinforces learning.
 
-#### 2.1 Set the Visual Stage Description:
-Describe here : (Guide : When a user lands up into a simulator, the visual stage is the first thing that user comes across. The visual stage should include all the elements to be seen by a user on an imaginary canvas.  (This should NOT include any drawings. ) )
-
-#### 2.2 Set User Objectives & Goals:
-Describe the objectives and goals in details here : (Guide : The user should clearly understand the aims and objective of the experiment. ( how he will begin experiment. in descriptive))
 
 #### 2.3 Set the Pathway Activities:
+The experiment begins with a brief introduction and learning objectives to guide the student. The user then proceeds to read the theory behind bomb calorimetry. Step-by-step, the student selects the appropriate fuel sample, inputs the necessary parameters (mass, water equivalent, etc.), and initiates the combustion process. The simulator will display the temperature change and automatically calculate the heat of combustion. At the end, the user completes a quiz to reinforce learning and test conceptual clarity.
 
-Describe the pathway activites here : (Guide : Set the pathway activities in line with the learning objectives (LOs)  & with a view to achieve the goals set in introductory & pedagogy documnets.  (once he begins, how he will traverse through the entire experiment ? in descriptive))
 
 ##### 2.4 Set Challenges and Questions/Complexity/Variations in Questions:
-
-Describe the challenges Here : (Guide : Set Challenges and Questions/Complexity/variations in questions according to User’s level, so as to invoke the learners’ interest.  (while traversing, what challenges he will face? how he has to solve and overcome ? descriptive).)
+The quiz will include both direct and applied questions to assess the learner’s understanding. Some questions will involve identifying errors in the experiment steps, others will ask for calculations based on the output values. To add complexity, the difficulty may gradually increase—from basic definitions to analyzing data patterns. This keeps the learner engaged and encourages deeper understanding of the experiment.
 
 ##### 2.5 Allow pitfalls:
-Describe the pitfalls here: (Guide : while traversing or while solving challenge, how will we bring a situation in front of him that he commits mistake if he is not attentive , or not following procedure , descriptive)
-
+To enhance learning, certain pitfalls will be deliberately introduced. For example, if the student skips calibration or inputs unrealistic data, the simulator will show unexpected or incorrect results. These mistakes will serve as feedback opportunities, prompting users to revisit steps and correct their approach. This encourages critical thinking and reinforces the importance of accuracy in scientific procedures.
 ##### 2.6 Conclusion:
-Describe conclusion here : (Guide: This may include displaying: how much time did the user take to solve the questions/ How many questions were right?/ How many hints did the learner use. Based on this the evaluation/marking to be suggested to the user. (once he is towards the completion of the experiment, what LO he is taking along with him, what will be his probable, interpretation/conclusion , descriptive) )
+To enhance learning, certain pitfalls will be deliberately introduced. For example, if the student skips calibration or inputs unrealistic data, the simulator will show unexpected or incorrect results. These mistakes will serve as feedback opportunities, prompting users to revisit steps and correct their approach. This encourages critical thinking and reinforces the importance of accuracy in scientific procedures.
 
 ##### 2.7 Equations/formulas: NA
-Type equations here : (Guide : ( a separate sheet having equations / programs for the lab exper3ment to be shared along with the Story submissions (1) . You can mark it as numerical reference numbers within the story narration (like we cite in the research papers) and then separately share these equations/programs sheets as a reference, do not include the equations as a whole in the narration))
-Tool can be used to integrate formula in Markdown <b> [here](http://latex.codecogs.com/eqneditor/samples/example3.php) </b>
+The experiment involves basic thermodynamic principles. The primary equation used is:
+
+*Q = mcΔT*
+
+Where:  
+- Q = Heat released or absorbed (in joules)  
+- m = Mass of the substance (in kg or g)  
+- c = Specific heat capacity (J/kg·K or J/g·°C)  
+- ΔT = Change in temperature (T_final - T_initial)
+
+This equation is applied to determine the heat of combustion of the given sample. The system is assumed to be perfectly insulated, so all heat released by the reaction is absorbed by the water and the calorimeter.
 
 
 ### 3. Flowchart
