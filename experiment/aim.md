@@ -1,1 +1,2 @@
 ### Aim of the experiment
+To determine the heat of combustion of a given substance using a bomb calorimeter, and to understand the principles of calorimetry by measuring the energy change associated with a chemical reaction in a controlled environment.
