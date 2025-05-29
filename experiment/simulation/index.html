@@ -1,13 +1,299 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Calorimeter - Fully Interactive</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-		<!-- Your code goes here-->
+    <div class="controls">
+        <button id="startButton">Start Simulation</button>
+        <button id="nextButton" disabled>Next Step</button>
+        <button id="resetButton" disabled>Reset</button>
+        <button id="calculateButton" class="hidden" disabled>Calculate</button>
+    </div>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <div class="calorimeter-wrapper" id="calorimeterWrapper">
+        <svg viewBox="0 0 700 750" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gradOuterCasingFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ececec" />
+                    <stop offset="100%" stop-color="#d0d0d0" />
+                </linearGradient>
+                <linearGradient id="gradOuterCasingTop" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#c0c0c0" />
+                    <stop offset="100%" stop-color="#a0a0a0" />
+                </linearGradient>
+                <linearGradient id="gradInsulatingJacket" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f5f5f5" />
+                    <stop offset="100%" stop-color="#e8e8e8" />
+                </linearGradient>
+                <linearGradient id="gradBucket" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e6f7ff" />
+                    <stop offset="100%" stop-color="#d0edff" />
+                </linearGradient>
+                <linearGradient id="gradWater" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#87ceeb" />
+                    <stop offset="100%" stop-color="#6495ed" />
+                </linearGradient>
+                <linearGradient id="gradSteelBomb" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#d0d0d0" />
+                    <stop offset="20%" stop-color="#c0c0c0" />
+                    <stop offset="80%" stop-color="#909090" />
+                    <stop offset="100%" stop-color="#a0a0a0" />
+                </linearGradient>
+                <linearGradient id="gradCrucible" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f5deb3" />
+                    <stop offset="100%" stop-color="#deb887" />
+                </linearGradient>
+                <linearGradient id="gradSample" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffd700" />
+                    <stop offset="100%" stop-color="#ccac00" />
+                </linearGradient>
+                <linearGradient id="gradStirrer" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8b4513" />
+                    <stop offset="50%" stop-color="#a0522d" />
+                    <stop offset="100%" stop-color="#8b4513" />
+                </linearGradient>
+                <linearGradient id="gradThermometerGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f0f8ff" />
+                    <stop offset="40%" stop-color="#f0f8ff" />
+                    <stop offset="50%" stop-color="rgba(255,255,255,0.4)" />
+                    <stop offset="60%" stop-color="#f0f8ff" />
+                    <stop offset="100%" stop-color="#f0f8ff" />
+                </linearGradient>
+                <linearGradient id="gradOxygenTube" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#add8e6" />
+                    <stop offset="50%" stop-color="#b0c4de" />
+                    <stop offset="100%" stop-color="#add8e6" />
+                </linearGradient>
+                <radialGradient id="gradOxygenValve" cx="50%" cy="50%" r="50%" fx="60%" fy="40%">
+                    <stop offset="0%" stop-color="#aaffff" />
+                    <stop offset="100%" stop-color="#66b3b3" />
+                </radialGradient>
+                <linearGradient id="gradOxygenGaugeFace" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e0f0f0" />
+                    <stop offset="100%" stop-color="#c0e0e0" />
+                </linearGradient>
+                <linearGradient id="gradBombLid" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#999" />
+                    <stop offset="100%" stop-color="#777" />
+                </linearGradient>
+                <linearGradient id="gradHeater" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffcc00" />
+                    <stop offset="50%" stop-color="#ff8c00" />
+                    <stop offset="100%" stop-color="#ff5500" />
+                </linearGradient>
+
+                <filter id="mainDropShadow">
+                    <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="black" flood-opacity="0.3"/>
+                </filter>
+                <filter id="innerShadow">
+                    <feOffset dx="0" dy="0"/>
+                    <feGaussianBlur stdDeviation="3" result="offset-blur"/>
+                    <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+                    <feFlood flood-color="black" flood-opacity="0.2" result="color"/>
+                    <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+                    <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+                </filter>
+                <filter id="heaterGlowFilter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"></feGaussianBlur>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0.6 1 0 0 0  0 0 0.5 0 0  0 0 0 25 -10" result="glow"></feColorMatrix>
+                    <feMerge>
+                        <feMergeNode in="glow"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <rect id="outerCasing" x="50" y="50" width="600" height="650" rx="15" ry="15" class="outer-casing hoverable" filter="url(#mainDropShadow)"/>
+            <path id="outerCasingTop" d="M50,50 L650,50 L650,70 Q600,70 50,70 Z" class="outer-casing-top-face hoverable" />
+            <rect id="insulatingJacket" x="80" y="80" width="540" height="580" rx="8" ry="8" class="insulating-jacket hoverable" filter="url(#innerShadow)"/>
+
+            <path id="bucket" d="M110,110 C110,105 115,100 120,100 H580 C585,100 590,105 590,110 V620 C590,635 575,640 560,640 H140 C125,640 110,635 110,620 Z"
+                  class="bucket hoverable" filter="url(#innerShadow)"/>
+            <path id="water" d="M112,170 L112,625 C112,635 125,638 135,638 H565 C575,638 588,635 588,625 L588,170 Z"
+                  class="water hoverable"/>
+            <rect id="airSpace" x="112" y="110" width="476" height="60" class="air-space-fill hoverable"/>
+
+            <path id="steelBomb" d="M230,340 C230,310 260,300 290,300 H410 C440,300 470,310 470,340 V580 C470,610 440,620 410,620 H290 C260,620 230,610 230,580 Z"
+                  class="steel-bomb hoverable" filter="url(#innerShadow)"/>
+            <rect id="bombLid" x="230" y="340" width="240" height="25" class="bomb-lid hoverable"/>
+            <path id="crucible" d="M305,480 C305,470 315,465 350,465 C385,465 395,470 395,480 V525 C395,535 385,540 350,540 C315,540 305,535 305,525 Z"
+                  class="crucible hoverable"/>
+            <ellipse id="sample" cx="350" cy="505" rx="30" ry="15" class="sample hoverable"/>
+
+            <circle id="ignitionCoil" cx="350" cy="440" r="40" class="ignition-coil hoverable" />
+            <line id="ignitionWireLeft" x1="310" y1="440" x2="290" y2="370" class="ignition-wire hoverable"/>
+            <line id="ignitionWireRight" x1="390" y1="440" x2="410" y2="370" class="ignition-wire hoverable"/>
+            <line id="ignitionWireTopLeft" x1="240" y1="65" x2="290" y2="370" class="ignition-wire hoverable"/>
+            <line id="ignitionWireTopRight" x1="460" y1="65" x2="410" y2="370" class="ignition-wire hoverable"/>
+
+            <g id="stirrerGroup" class="hoverable"> <rect id="stirrer" x="135" y="0" width="12" height="520" rx="6" ry="6" class="stirrer-rod"/>
+                <rect id="stirrerHandle" x="125" y="-30" width="30" height="15" rx="6" ry="6" class="stirrer-handle" transform="rotate(-15 140 -15)"/>
+                <path id="stirrerBlade" d="M-10,0 L10,0 L20,15 L-25,15 Z" class="stirrer-blade" transform="translate(140,487.5)"/>
+            </g>
+
+            <rect id="thermometer" x="550" y="10" width="25" height="590" rx="12" ry="12" class="thermometer-body hoverable"/>
+            <rect id="thermometerMercury" x="559" y="380" width="7" height="200" class="thermometer-mercury"/>
+            <circle cx="562.5" cy="580" r="10" class="thermometer-bulb"/>
+            <line x1="545" y1="30" x2="550" y2="30" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="80" x2="550" y2="80" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="130" x2="550" y2="130" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="180" x2="550" y2="180" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="230" x2="550" y2="230" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="280" x2="550" y2="280" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="330" x2="550" y2="330" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="380" x2="550" y2="380" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="430" x2="550" y2="430" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="480" x2="550" y2="480" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="530" x2="550" y2="530" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="545" y1="570" x2="550" y2="570" class="thermometer-markings thermometer-major-markings"/>
+            <line x1="547" y1="40" x2="550" y2="40" class="thermometer-markings"/>
+            <line x1="547" y1="50" x2="550" y2="50" class="thermometer-markings"/>
+            <line x1="547" y1="60" x2="550" y2="60" class="thermometer-markings"/>
+            <line x1="547" y1="70" x2="550" y2="70" class="thermometer-markings"/>
+            <line x1="547" y1="90" x2="550" y2="90" class="thermometer-markings"/>
+            <line x1="547" y1="100" x2="550" y2="100" class="thermometer-markings"/>
+            <line x1="547" y1="110" x2="550" y2="110" class="thermometer-markings"/>
+            <line x1="547" y1="120" x2="550" y2="120" class="thermometer-markings"/>
+            <line x1="547" y1="140" x2="550" y2="140" class="thermometer-markings"/>
+            <line x1="547" y1="150" x2="550" y2="150" class="thermometer-markings"/>
+            <line x1="547" y1="160" x2="550" y2="160" class="thermometer-markings"/>
+            <line x1="547" y1="170" x2="550" y2="170" class="thermometer-markings"/>
+            <line x1="547" y1="190" x2="550" y2="190" class="thermometer-markings"/>
+            <line x1="547" y1="200" x2="550" y2="200" class="thermometer-markings"/>
+            <line x1="547" y1="210" x2="550" y2="210" class="thermometer-markings"/>
+            <line x1="547" y1="220" x2="550" y2="220" class="thermometer-markings"/>
+            <line x1="547" y1="240" x2="550" y2="240" class="thermometer-markings"/>
+            <line x1="547" y1="250" x2="550" y2="250" class="thermometer-markings"/>
+            <line x1="547" y1="260" x2="550" y2="260" class="thermometer-markings"/>
+            <line x1="547" y1="270" x2="550" y2="270" class="thermometer-markings"/>
+            <line x1="547" y1="290" x2="550" y2="290" class="thermometer-markings"/>
+            <line x1="547" y1="300" x2="550" y2="300" class="thermometer-markings"/>
+            <line x1="547" y1="310" x2="550" y2="310" class="thermometer-markings"/>
+            <line x1="547" y1="320" x2="550" y2="320" class="thermometer-markings"/>
+            <line x1="547" y1="340" x2="550" y2="340" class="thermometer-markings"/>
+            <line x1="547" y1="350" x2="550" y2="350" class="thermometer-markings"/>
+            <line x1="547" y1="360" x2="550" y2="360" class="thermometer-markings"/>
+            <line x1="547" y1="370" x2="550" y2="370" class="thermometer-markings"/>
+            <line x1="547" y1="390" x2="550" y2="390" class="thermometer-markings"/>
+            <line x1="547" y1="400" x2="550" y2="400" class="thermometer-markings"/>
+            <line x1="547" y1="410" x2="550" y2="410" class="thermometer-markings"/>
+            <line x1="547" y1="420" x2="550" y2="420" class="thermometer-markings"/>
+            <line x1="547" y1="440" x2="550" y2="440" class="thermometer-markings"/>
+            <line x1="547" y1="450" x2="550" y2="450" class="thermometer-markings"/>
+            <line x1="547" y1="460" x2="550" y2="460" class="thermometer-markings"/>
+            <line x1="547" y1="470" x2="550" y2="470" class="thermometer-markings"/>
+            <line x1="547" y1="490" x2="550" y2="490" class="thermometer-markings"/>
+            <line x1="547" y1="500" x2="550" y2="500" class="thermometer-markings"/>
+            <line x1="547" y1="510" x2="550" y2="510" class="thermometer-markings"/>
+            <line x1="547" y1="520" x2="550" y2="520" class="thermometer-markings"/>
+            <line x1="547" y1="540" x2="550" y2="540" class="thermometer-markings"/>
+            <line x1="547" y1="550" x2="550" y2="550" class="thermometer-markings"/>
+            <line x1="547" y1="560" x2="550" y2="560" class="thermometer-markings"/>
+            <line x1="547" y1="570" x2="550" y2="570" class="thermometer-markings"/>
+
+            <rect id="oxygenTube" x="340" y="100" width="30" height="220" rx="8" ry="8" class="oxygen-tube hoverable"/>
+            <circle id="oxygenValve" cx="355" cy="70" r="28" class="oxygen-valve-body hoverable"/>
+            <rect id="oxygenTubeBomb" x="350" y="320" width="10" height="40" rx="4" ry="4" class="oxygen-tube hoverable"/>
+
+            <g id="heaterLeft" class="hoverable">
+                <rect x="170" y="520" width="60" height="40" rx="8" ry="8" class="heater-casing"/>
+                <path d="M178,540 C185,530 195,550 202,540 C209,530 219,550 226,540" class="heater-coil-inside"/>
+            </g>
+
+            <g id="heaterRight" class="hoverable">
+                <rect x="470" y="520" width="60" height="40" rx="8" ry="8" class="heater-casing"/>
+                <path d="M478,540 C485,530 495,550 502,540 C509,530 519,550 526,540" class="heater-coil-inside"/>
+            </g>
+
+            <line x1="141" y1="50" x2="141" y2="100" class="label-line"/>
+            <text x="141" y="40" class="label">Stirrer</text>
+
+            <line x1="110" y1="180" x2="80" y2="180" class="label-line"/>
+            <text x="50" y="185" class="label" text-anchor="start">Bucket</text>
+
+            <line x1="80" y1="330" x2="70" y2="300" class="label-line"/>
+            <text x="70" y="290" class="label" text-anchor="end">Insulating Jacket</text>
+
+            <line x1="112" y1="450" x2="80" y2="450" class="label-line"/>
+            <text x="50" y="455" class="label" text-anchor="start">Water</text>
+
+            <line x1="170" y1="540" x2="130" y2="540" class="label-line"/>
+            <text x="90" y="545" class="label" text-anchor="start">Heater</text>
+
+            <line x1="530" y1="540" x2="570" y2="540" class="label-line"/>
+            <text x="610" y="545" class="label" text-anchor="end">Heater</text>
+
+            <text x="240" y="55" class="label">Ignition Wire</text>
+
+            <text x="355" y="30" class="label">Oxygen Supply</text>
+
+            <line x1="562" y1="40" x2="595" y2="40" class="label-line"/>
+            <text x="640" y="45" class="label" text-anchor="end">Thermometer</text>
+
+            <line x1="588" y1="140" x2="620" y2="140" class="label-line"/>
+            <text x="650" y="145" class="label" text-anchor="end">Air Space</text>
+
+            <line x1="470" y1="450" x2="500" y2="450" class="label-line"/>
+            <text x="540" y="455" class="label" text-anchor="end">Steel Bomb</text>
+
+            <line x1="395" y1="495" x2="420" y2="495" class="label-line"/>
+            <text x="460" y="500" class="label" text-anchor="start">Crucible</text>
+
+            <line x1="380" y1="505" x2="410" y2="505" class="label-line"/>
+            <text x="450" y="510" class="label" text-anchor="start">Sample</text>
+
+            <text x="350" y="380" class="label">Ignition Coil</text>
+        </svg>
+        <div id="tooltip"></div>
+    </div>
+    <div id="infoPanel">
+        <button class="close-button" id="closeInfoPanelButton">&times;</button>
+        <h3>Welcome!</h3>
+        <p id="infoText">Click 'Start Simulation' to learn how the bomb calorimeter works, or click on individual components after the simulation for more details.</p>
+    </div>
+
+    <div id="calculationScreen" class="hidden">
+        <h2>Calorific Value Calculator</h2>
+
+        <div class="fuel-selection">
+            <label for="fuelSelect">Select Fuel:</label>
+            <select id="fuelSelect">
+                <option value="">-- Select a Fuel --</option>
+                <option value="coal">Coal</option>
+                <option value="petrol">Petrol</option>
+                <option value="biogas">Biogas</option>
+                <option value="lpg">LPG</option>
+            </select>
+        </div>
+
+        <div id="pieChartContainer">
+            <p style="color: #666; font-size: 1.1em;">Select a fuel to see its conceptual energy distribution.</p>
+        </div>
+        <div class="pie-chart-legend" id="pieChartLegend">
+            </div>
+
+        <div id="calorificValueCalculator">
+            <h4>Calorific Value Calculation Parameters</h4>
+            <div id="calculationParameters">
+                </div>
+            <div id="calculationFormula">
+                </div>
+            <div class="calc-input-section">
+                <label for="userCalorificValueInput">Enter Calculated Calorific Value (J/g):</label>
+                <div class="input-and-feedback-group">
+                    <input type="number" id="userCalorificValueInput" step="0.01" placeholder="Your Answer">
+                    <button id="checkCalorificValueButton">Check Value</button>
+                    <p id="calculationFeedback"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script href="main.js"></script>
 </body>
 </html>
