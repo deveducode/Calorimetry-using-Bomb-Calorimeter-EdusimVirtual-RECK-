@@ -37,12 +37,6 @@ Assessment Questions:
     Explain the significance of heat of combustion in real-world applications.
     How do errors in measurement affect calorimetric results?
 
-- User Interface: Interactive modules for setting up and running experiments.
-- Controls: Adjustable variables such as sample type, mass, and initial conditions.
-- Data Visualization: Real-time graphs illustrating temperature changes.
-- Analysis Tools: Built-in calculators for heat combustion computation.
-- Feedback Mechanism: Instant prompts guiding users through errors or miscalculations.
-
 <h4> [5. Simulator Interactions](#SI)- User Interface: Interactive modules for setting up and running experiments.
 - Controls: Adjustable variables such as sample type, mass, and initial conditions.
 - Data Visualization: Real-time graphs illustrating temperature changes.
