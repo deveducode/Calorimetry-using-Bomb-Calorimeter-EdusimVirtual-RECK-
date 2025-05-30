@@ -5,7 +5,7 @@
 
 
 <br>
-<b> Experiment : Name of the experiment	 <a name="top"></a> <br>
+<b> Experiment : Calorimetry using Bomb Calorimeter	 <a name="top"></a> <br>
 </p>
 
 <b>Discipline |  <b> Chemical science 
