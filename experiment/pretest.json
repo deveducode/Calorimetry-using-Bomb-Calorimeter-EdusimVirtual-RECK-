@@ -2,12 +2,12 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "1. What does the Gross Calorific Value (GCV) represent in a bomb calorimeter experiment?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "a) Heat absorbed by the bomb walls only",
+        "b": "b) Energy lost due to incomplete combustion",
+        "c": "c) Total heat released per gram of fuel, including heat from condensation",
+        "d": "d) Heat used only for raising temperature of the sample"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -15,16 +15,16 @@
         "c": "Explanation 2",
         "d": "Explanation 2"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": " Why is the bomb calorimeter referred to as a constant volume calorimeter?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Because the pressure inside remains constant",
+        "b": " Because the outer container doesn’t expand",
+        "c": "Because the combustion chamber is rigid and sealed",
+        "d": "Because the volume of water used remains the same"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
