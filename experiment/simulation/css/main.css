@@ -1,477 +1,482 @@
- body {
-            display: grid;
-            grid-template-columns: 1fr 700px 400px 1fr; /* Left padding, Diagram, Info Panel, Right padding */
-            grid-template-rows: auto 750px auto; /* Controls row, Diagram/Info row, bottom space */
-            grid-template-areas:
-                ". controls . ."
-                ". diagram infoPanel ."
-                ". . . ."; /* Empty row at bottom for potential future use or just padding */
-            justify-content: center;
-            align-items: start; /* Align items to the start of their grid areas */
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbars from wrapper shadow */
-            gap: 20px; /* Gap between grid items */
-        }
-        .controls {
-            grid-area: controls;
-            text-align: center;
-            margin-bottom: 20px; /* Space below controls */
-            display: flex; /* Use flexbox for button layout */
-            justify-content: center; /* Center buttons */
-            align-items: center;
-            gap: 15px; /* Space between buttons */
-        }
-        .calorimeter-wrapper {
-            grid-area: diagram;
-            position: relative;
-            width: 700px;
-            height: 750px;
-            background-color: #f8f8f8;
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
-            border-radius: 22px;
-            overflow: hidden;
-            border: 2px solid #a0a0a0;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-            /* Removed margin-bottom as grid handles spacing */
-        }
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        /* Your existing SVG styling classes */
-        .outer-casing { fill: url(#gradOuterCasingFill); stroke: #808080; stroke-width: 2; }
-        .outer-casing-top-face { fill: url(#gradOuterCasingTop); stroke: #808080; stroke-width: 2; }
-        .insulating-jacket { fill: url(#gradInsulatingJacket); stroke: #a0a0a0; stroke-width: 2; }
-        .bucket { fill: url(#gradBucket); stroke: #87ceeb; stroke-width: 2.5; }
-        .water { fill: url(#gradWater); stroke: #4682b4; stroke-width: 1.5; }
-        .air-space-fill { fill: #e6f7ff; opacity: 0.7; }
+body {
+    display: grid;
+    grid-template-columns: 1fr 700px 400px 1fr;
+    grid-template-rows: auto 750px auto;
+    grid-template-areas:
+        ". controls . ."
+        ". diagram infoPanel ."
+        ". . . .";
+    justify-content: center;
+    align-items: start;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    gap: 20px;
+}
+.controls {
+    grid-area: controls;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.calorimeter-wrapper {
+    grid-area: diagram;
+    position: relative;
+    width: 700px;
+    height: 750px;
+    background-color: #f8f8f8;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+    border-radius: 22px;
+    overflow: hidden;
+    border: 2px solid #a0a0a0;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.outer-casing { fill: url(#gradOuterCasingFill); stroke: #808080; stroke-width: 2; }
+.outer-casing-top-face { fill: url(#gradOuterCasingTop); stroke: #808080; stroke-width: 2; }
+.insulating-jacket { fill: url(#gradInsulatingJacket); stroke: #a0a0a0; stroke-width: 2; }
+.bucket { fill: url(#gradBucket); stroke: #87ceeb; stroke-width: 2.5; }
+.water { fill: url(#gradWater); stroke: #4682b4; stroke-width: 1.5; }
+.air-space-fill { fill: #e6f7ff; opacity: 0.7; }
 
-        .steel-bomb { fill: url(#gradSteelBomb); stroke: #555; stroke-width: 2.5; }
-        .bomb-lid { fill: url(#gradBombLid); stroke: #555; stroke-width: 2; }
-        .crucible { fill: url(#gradCrucible); stroke: #8b4513; stroke-width: 1.5; }
-        .sample { fill: url(#gradSample); stroke: #b8860b; stroke-width: 1; }
+.steel-bomb { fill: url(#gradSteelBomb); stroke: #555; stroke-width: 2.5; }
+.bomb-lid { fill: url(#gradBombLid); stroke: #555; stroke-width: 2; }
+.crucible { fill: url(#gradCrucible); stroke: #8b4513; stroke-width: 1.5; }
+.sample { fill: url(#gradSample); stroke: #b8860b; stroke-width: 1; }
 
-        .ignition-wire { stroke: #ff0000; stroke-width: 3.5; stroke-linecap: round; }
-        .ignition-coil { fill: none; stroke: #ff4500; stroke-width: 6; stroke-linecap: round; filter: url(#heaterGlowFilter); }
-        .wire-connector { fill: black; stroke: black; stroke-width: 1; }
+.ignition-wire { stroke: #ff0000; stroke-width: 3.5; stroke-linecap: round; }
+.ignition-coil { fill: none; stroke: #ff4500; stroke-width: 6; stroke-linecap: round; filter: url(#heaterGlowFilter); }
+.wire-connector { fill: black; stroke: black; stroke-width: 1; }
 
-        .stirrer-rod { fill: url(#gradStirrer); stroke: #5a2e0a; stroke-width: 1.5; }
-        .stirrer-handle { fill: #5a2e0a; stroke: #3f2707; stroke-width: 2; }
-        .stirrer-blade {
-            fill: #8b4513;
-            stroke: #5a2e0a;
-            stroke-width: 1.5;
-            /* **KEY CHANGE HERE:** Set a fixed transform-origin relative to the SVG's coordinate system. */
-            /* This is the center of the blade's attachment point to the rod. */
-            transform-origin: 140px 487.5px; /* X (center of rod) and Y (where blade attaches) */
-        }
-        .stirrer-arrows { fill: #444; }
+.stirrer-rod { fill: url(#gradStirrer); stroke: #5a2e0a; stroke-width: 1.5; }
+.stirrer-handle { fill: #5a2e0a; stroke: #3f2707; stroke-width: 2; }
+.stirrer-blade {
+    fill: #8b4513;
+    stroke: #5a2e0a;
+    stroke-width: 1.5;
+    transform-origin: 140px 487.5px;
+}
+.stirrer-arrows { fill: #444; }
 
-        .thermometer-body { fill: url(#gradThermometerGlass); stroke: #b0b0b0; stroke-width: 1.5; }
-        .thermometer-mercury { fill: red; }
-        .thermometer-bulb { fill: red; stroke: darkred; stroke-width: 1; }
-        .thermometer-markings { stroke: #888; stroke-width: 1; }
-        .thermometer-major-markings { stroke-width: 1.5; }
+.thermometer-body { fill: url(#gradThermometerGlass); stroke: #b0b0b0; stroke-width: 1.5; }
+.thermometer-mercury { fill: red; }
+.thermometer-bulb { fill: red; stroke: darkred; stroke-width: 1; }
+.thermometer-markings { stroke: #888; stroke-width: 1; }
+.thermometer-major-markings { stroke-width: 1.5; }
 
-        .oxygen-tube { fill: url(#gradOxygenTube); stroke: #6a8ba6; stroke-width: 2; }
-        .oxygen-valve-body { fill: url(#gradOxygenValve); stroke: #4682b4; stroke-width: 2.5; }
-        .oxygen-gauge-face { fill: url(#gradOxygenGaugeFace); stroke: #4682b4; stroke-width: 1.5; }
-        .oxygen-gauge-needle { stroke: black; stroke-width: 1.5; }
+.oxygen-tube { fill: url(#gradOxygenTube); stroke: #6a8ba6; stroke-width: 2; }
+.oxygen-valve-body { fill: url(#gradOxygenValve); stroke: #4682b4; stroke-width: 2.5; }
+.oxygen-gauge-face { fill: url(#gradOxygenGaugeFace); stroke: #4682b4; stroke-width: 1.5; }
+.oxygen-gauge-needle { stroke: black; stroke-width: 1.5; }
 
-        .heater-casing { fill: url(#gradHeater); stroke: #a0522d; stroke-width: 2; filter: url(#heaterGlowFilter); }
-        .heater-coil-inside { fill: none; stroke: black; stroke-width: 3; stroke-linecap: round; }
+.heater-casing { fill: url(#gradHeater); stroke: #a0522d; stroke-width: 2; filter: url(#heaterGlowFilter); }
+.heater-coil-inside { fill: none; stroke: black; stroke-width: 3; stroke-linecap: round; }
 
-        /* Label Styling for SVG text elements */
-        text.label {
-            font-size: 14px;
-            fill: black;
-            font-weight: bold;
-            text-anchor: middle;
-            text-shadow: 0.5px 0.5px 2px white;
-            pointer-events: none; /* Allows clicks to pass through to elements behind */
-        }
-        .label-line {
-            stroke: black;
-            stroke-width: 1.5;
-            fill: none;
-        }
+text.label {
+    font-size: 14px;
+    fill: black;
+    font-weight: bold;
+    text-anchor: middle;
+    text-shadow: 0.5px 0.5px 2px white;
+    pointer-events: none;
+}
+.label-line {
+    stroke: black;
+    stroke-width: 1.5;
+    fill: none;
+}
 
-        /* New styles for interactivity */
-        .hoverable {
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-        .hoverable:hover:not(.simulation-active) { /* Only apply hover if simulation is not active */
-            opacity: 0.8; /* Subtle visual feedback */
-            transform: scale(1.01); /* Slight enlarge */
-        }
-        /* Style for when individual interactions are disabled during simulation */
-        .simulation-active .hoverable {
-            cursor: default !important;
-            pointer-events: none; /* Disable all mouse events */
-        }
-        .simulation-active .label {
-            pointer-events: none; /* Ensure labels don't interfere */
-        }
+.hoverable {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 8px;
+}
+.hoverable:hover:not(.simulation-active) {
+    opacity: 0.8;
+    transform: scale(1.01);
+}
+.simulation-active .hoverable {
+    cursor: default !important;
+    pointer-events: none;
+}
+.simulation-active .label {
+    pointer-events: none;
+}
 
+#tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 1000;
+    white-space: nowrap;
+}
+#tooltip.visible {
+    opacity: 1;
+}
 
-        #tooltip {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-            pointer-events: none; /* Crucial: allows mouse events to pass through to the SVG */
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
-            z-index: 1000;
-            white-space: nowrap; /* Keep text on one line */
-        }
-        #tooltip.visible {
-            opacity: 1;
-        }
+#infoPanel {
+    grid-area: infoPanel;
+    width: 400px;
+    height: 750px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#infoPanel.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#infoPanel h3 {
+    margin-top: 0;
+    color: #3f51b5;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-bottom: 2px solid #e8eaf6;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+#infoPanel p {
+    color: #424242;
+    line-height: 1.7;
+    font-size: 1.15em;
+    text-align: justify;
+    flex-grow: 1;
+}
 
-        /* Refined infoPanel styles */
-        #infoPanel {
-            grid-area: infoPanel;
-            width: 400px;
-            height: 750px;
-            background-color: #ffffff; /* Clean white background */
-            border: 1px solid #e0e0e0; /* Lighter border */
-            border-radius: 12px; /* More rounded corners */
-            padding: 25px; /* Increased padding */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
-            z-index: 999;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-            box-sizing: border-box;
-            display: flex; /* Use flexbox for better content layout */
-            flex-direction: column; /* Stack children vertically */
-            position: relative; /* For positioning the close button */
-        }
-        #infoPanel.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #infoPanel h3 {
-            margin-top: 0;
-            color: #3f51b5; /* A pleasant blue for headings */
-            font-size: 1.8em; /* Slightly larger heading */
-            font-weight: 600; /* Medium bold */
-            border-bottom: 2px solid #e8eaf6; /* Subtle underline effect */
-            padding-bottom: 10px; /* Space below underline */
-            margin-bottom: 15px; /* Space before paragraph */
-        }
-        #infoPanel p {
-            color: #424242; /* Darker grey for better readability */
-            line-height: 1.7; /* Increased line height */
-            font-size: 1.15em; /* Slightly larger text */
-            text-align: justify; /* Justify text for a cleaner block */
-            flex-grow: 1; /* Allow text to take up available space */
-        }
+#infoPanel .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #757575;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
 
-        #infoPanel .close-button {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            color: #757575;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
+#infoPanel .close-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
 
-        #infoPanel .close-button:hover {
-            background-color: #f0f0f0;
-            color: #333;
-        }
+.highlighted {
+    stroke: blue !important;
+    stroke-width: 4 !important;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 255, 0.7));
+}
 
+.controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.controls button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+.controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
 
-        .highlighted {
-            stroke: blue !important;
-            stroke-width: 4 !important;
-            filter: drop-shadow(0 0 8px rgba(0, 0, 255, 0.7)); /* Blue glow */
-        }
+@keyframes glow {
+    0% { filter: url(#heaterGlowFilter); opacity: 1; }
+    50% { filter: url(#heaterGlowFilter); opacity: 0.7; }
+    100% { filter: url(#heaterGlowFilter); opacity: 1; }
+}
+.igniting .ignition-coil {
+    animation: glow 0.5s ease-in-out infinite alternate;
+    stroke: orange;
+    filter: url(#heaterGlowFilter);
+}
+.igniting .ignition-wire {
+     stroke: orange;
+}
 
-        .controls button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 0 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-        .controls button:hover:not(:disabled) {
-            background-color: #0056b3;
-        }
-        .controls button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
+.fade-out {
+    opacity: 0.3 !important;
+    transition: opacity 0.5s ease-in-out;
+}
+.fade-in {
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-in-out;
+}
 
-        /* CSS for animations */
-        @keyframes glow {
-            0% { filter: url(#heaterGlowFilter); opacity: 1; }
-            50% { filter: url(#heaterGlowFilter); opacity: 0.7; }
-            100% { filter: url(#heaterGlowFilter); opacity: 1; }
-        }
-        .igniting .ignition-coil {
-            animation: glow 0.5s ease-in-out infinite alternate;
-            stroke: orange;
-            filter: url(#heaterGlowFilter);
-        }
-        .igniting .ignition-wire {
-             stroke: orange;
-        }
+#calculationScreen {
+    grid-area: diagram / controls / infoPanel / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f8f8f8;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+    border-radius: 22px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 750px;
+}
 
-        .fade-out {
-            opacity: 0.3 !important;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .fade-in {
-            opacity: 1 !important;
-            transition: opacity 0.5s ease-in-out;
-        }
+#calculationScreen h2 {
+    color: #3f51b5;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+}
 
-        /* New styles for calculation screen */
-        #calculationScreen {
-            grid-area: diagram / controls / infoPanel / span 2; /* Span across diagram and infoPanel areas */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background-color: #f8f8f8;
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
-            border-radius: 22px;
-            padding: 30px;
-            box-sizing: border-box;
-            overflow-y: auto; /* Enable scrolling if content overflows */
-            height: 750px; /* Match diagram height */
-        }
+.fuel-selection {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        #calculationScreen h2 {
-            color: #3f51b5;
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            text-align: center;
-            width: 100%;
-        }
+.fuel-selection label {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
 
-        .fuel-selection {
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.fuel-selection select {
+    padding: 10px 15px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .fuel-selection label {
-            font-size: 1.2em;
-            color: #333;
-            font-weight: bold;
-        }
+.fuel-selection select:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+}
 
-        .fuel-selection select {
-            padding: 10px 15px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+#barChartContainer {
+    width: 90%;
+    max-width: 600px;
+    height: 350px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#calorificValueChart {
+    width: 100% !important;
+    height: 100% !important;
+}
 
-        .fuel-selection select:focus {
-            border-color: #3f51b5;
-            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
-        }
+#calorificValueCalculator {
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    text-align: left;
+    margin-bottom: 20px;
+}
 
-        #pieChartContainer {
-            width: 350px;
-            height: 350px;
-            margin-bottom: 30px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative; /* For pie chart labels */
-        }
+#calorificValueCalculator h4 {
+    color: #3f51b5;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-        #pieChartContainer svg {
-            position: relative; /* Override absolute positioning from general svg rule */
-            width: 100%;
-            height: 100%;
-        }
+.calc-param {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #555;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
 
-        .pie-slice-label {
-            font-size: 0.8em;
-            fill: #333;
-            font-weight: bold;
-            text-anchor: middle;
-            pointer-events: none;
-        }
+.calc-param:last-of-type {
+    border-bottom: none;
+    margin-bottom: 20px;
+}
 
-        .pie-chart-legend {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
+#calculationParameters,
+#calculationFormula {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            font-size: 1em;
-            color: #555;
-        }
+.calc-input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+}
 
-        .legend-color-box {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
-            margin-right: 8px;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
+.input-and-feedback-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
 
-        #calorificValueCalculator {
-            width: 90%;
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 25px;
-            text-align: left;
-        }
+.calc-input-section label {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
 
-        #calorificValueCalculator h4 {
-            color: #3f51b5;
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.calc-input-section input[type="number"] {
+    padding: 10px 15px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .calc-param {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: #555;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed #eee;
-        }
+.calc-input-section input[type="number"]:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+}
 
-        .calc-param:last-of-type {
-            border-bottom: none;
-            margin-bottom: 20px;
-        }
+.calc-input-section button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 
-        /* Added styles to ensure calculation parameters and formula are scrollable if too long */
-        #calculationParameters,
-        #calculationFormula {
-            max-height: 150px; /* Limits the height of these sections */
-            overflow-y: auto; /* Adds scrollbar if content exceeds max-height */
-            margin-bottom: 15px; /* Provides space below these sections */
-            padding-right: 5px; /* Adds padding for scrollbar, if present */
-            box-sizing: border-box; /* Ensures padding is included in the max-height */
-        }
+.calc-input-section button:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+}
 
-        .calc-input-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 25px;
-            gap: 15px;
-        }
+#calculationFeedback {
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px;
+    flex-shrink: 0;
+}
 
-        /* New style for the group containing input, button, and feedback */
-        .input-and-feedback-group {
-            display: flex;
-            align-items: center; /* Vertically align items in the row */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center; /* Center the group within its parent */
-            width: 100%; /* Take full width of parent to help centering */
-            gap: 15px; /* Space between elements */
-        }
+.feedback-correct {
+    color: #28a745;
+}
 
-        .calc-input-section label {
-            font-size: 1.1em;
-            color: #333;
-            font-weight: bold;
-        }
+.feedback-wrong {
+    color: #dc3545;
+}
 
-        .calc-input-section input[type="number"] {
-            padding: 10px 15px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 250px;
-            text-align: center;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+.hidden {
+    display: none !important;
+}
 
-        .calc-input-section input[type="number"]:focus {
-            border-color: #3f51b5;
-            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
-        }
+#simulationCompleteMessage {
+    grid-area: diagram;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #3f51b5;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 1.5em;
+    color: #3f51b5;
+    font-weight: bold;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    max-width: 80%;
+    box-sizing: border-box;
+}
 
-        .calc-input-section button {
-            padding: 12px 30px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            border: none;
-            background-color: #4caf50; /* Green for check button */
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
+#simulationCompleteMessage.visible {
+    opacity: 1;
+    visibility: visible;
+}
 
-        .calc-input-section button:hover {
-            background-color: #43a047;
-            transform: translateY(-2px);
-        }
+.battery-wire {
+    stroke: #ff0000;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-dasharray: 5, 3;
+    opacity: 0.7;
+}
 
-        #calculationFeedback {
-            margin-top: 0; /* Remove top margin as it's now in a flex row */
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: center;
-            min-height: 30px; /* Reserve space */
-            flex-shrink: 0; /* Prevent it from shrinking */
-        }
+.igniting .battery-wire {
+    animation: chargeFlow 0.5s linear infinite;
+    stroke: orange;
+    opacity: 1;
+}
 
-        .feedback-correct {
-            color: #28a745; /* Green */
-        }
-
-        .feedback-wrong {
-            color: #dc3545; /* Red */
-        }
-
-        /* Utility class to hide elements */
-        .hidden {
-            display: none !important;
-        }
+@keyframes chargeFlow {
+    0% { stroke-dashoffset: 8; }
+    100% { stroke-dashoffset: 0; }
+}
