@@ -47,9 +47,7 @@ This equation is applied to determine the heat of combustion of the given sample
 
 
 ### 3. Flowchart
-Link to flow chart Here : Store in the  /flowchart folder within pedagogy folder in your repo
-<br>
-(Guide :The lab proposer should extract logic from the story, prepare a flowchart from the story narration and write the algorithm to execute the black box.  use Google Drawings https://docs.google.com/drawings/ (send the link to your flowchart and also attach .png by exporting it )
+![image alt](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/7c98137aef3ca71004999c72580c82eb43ac1f74/storyboard/flowchart/flowchart.jpg)
 
 ### 4. Mindmap
  Link to mindmap here : Store the mindmap in both .mm & .png extension in the  /mindmap folder and include link of only .pdf verison here
