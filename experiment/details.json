@@ -2,50 +2,46 @@
 
    "details": [
        {
-			"Experiment": "Voltage Distribution Across String Insulators",     
-			"Lab": "Power System Lab",               
-			"Discipline": "Electronics Engineering",				 
+			"Experiment": "Calorimetry Using Bomb Calorimeter",     
+			"Lab": "Chemical Engineering Lab",               
+			"Discipline": "Chemical Science",				 
 			"Technology": "HTML CSS Javascript"         
        }
    ],
 
    "developer": [
        {       
-      "Developer": "Mr. Rajeev Baghel",         
-      "Institute": "REC Kannauj",         
+      "Developer": "Dr. Ravish Rajput",         
+      "Institute": "Rajkiya Engineering College Kannauj U.P.",         
       "InstituteAcronym": "RECK"   
        }
    ],
 
    "contributer": [
        {       
-			"Contributer": "Ridam Sharma",             
+			"Contributer": "Aditya Singh",             
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Dhananjay Singh Gaur",              
+			"Contributer": "Devendra Singh  ",              
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Ichha Shukla",             
+			"Contributer": " Harigovind Tiwari",             
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
 
        {       
-			"Contributer": "Satish Kumar",              
+			"Contributer": "Khushi Gupta",              
       "Institute": "REC Kannauj",               
 			"InstituteAcronym": "RECK"         
        },
-       {       
-			"Contributer": "Shaili Chauhan",              
-      "Institute": "REC Kannauj",               
-			"InstituteAcronym": "RECK"         
-       }
+      
    ]
 
 }
