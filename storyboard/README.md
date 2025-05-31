@@ -50,9 +50,7 @@ This equation is applied to determine the heat of combustion of the given sample
 ![image alt](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/7c98137aef3ca71004999c72580c82eb43ac1f74/storyboard/flowchart/flowchart.jpg)
 
 ### 4. Mindmap
- Link to mindmap here : Store the mindmap in both .mm & .png extension in the  /mindmap folder and include link of only .pdf verison here
- <br>
- (Guide : An elaborate mind map (connecting all the points in the experiment flow ) should be prepared and submitted by the lab proposer. The mind map should be a clear and detailed document that takes into account all minute intri5acies involved in the development of virtual lab. The mindmap should be self-content and any developer across the globe should be able to code it with all those details. using only FreeMind http://freemind.sourceforge.net/wiki/index.php/Main_Page (send the .png file and also the original .mm extension project file. )
+ ![image alt](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/7b2fe5a6680982129db9865ab0631c5ad4e9138d/storyboard/mindmap/mindmap.jpg)
 
 ### 5. Storyboard
 
