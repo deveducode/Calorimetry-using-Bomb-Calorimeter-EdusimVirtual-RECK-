@@ -1,0 +1,51 @@
+{
+
+   "details": [
+       {
+			"Experiment": "Voltage Distribution Across String Insulators",     
+			"Lab": "Power System Lab",               
+			"Discipline": "Electronics Engineering",				 
+			"Technology": "HTML CSS Javascript"         
+       }
+   ],
+
+   "developer": [
+       {       
+      "Developer": "Mr. Rajeev Baghel",         
+      "Institute": "REC Kannauj",         
+      "InstituteAcronym": "RECK"   
+       }
+   ],
+
+   "contributer": [
+       {       
+			"Contributer": "Ridam Sharma",             
+      "Institute": "REC Kannauj",               
+			"InstituteAcronym": "RECK"         
+       },
+
+       {       
+			"Contributer": "Dhananjay Singh Gaur",              
+      "Institute": "REC Kannauj",               
+			"InstituteAcronym": "RECK"         
+       },
+
+       {       
+			"Contributer": "Ichha Shukla",             
+      "Institute": "REC Kannauj",               
+			"InstituteAcronym": "RECK"         
+       },
+
+       {       
+			"Contributer": "Satish Kumar",              
+      "Institute": "REC Kannauj",               
+			"InstituteAcronym": "RECK"         
+       },
+       {       
+			"Contributer": "Shaili Chauhan",              
+      "Institute": "REC Kannauj",               
+			"InstituteAcronym": "RECK"         
+       }
+   ]
+
+}
