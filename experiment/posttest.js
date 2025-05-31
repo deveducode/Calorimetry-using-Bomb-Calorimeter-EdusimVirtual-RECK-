@@ -92,23 +92,23 @@
     {
       question: "After performing the experiment, you calculate the GCV as 8500 J/g for a fuel. What does this value practically indicate?",  ///// Write the question inside double quotes
       answers: {
-        a: " ",                  ///// Write the option 1 inside double quotes
-        b: "",                  ///// Write the option 2 inside double quotes
-        c: "",                  ///// Write the option 3 inside double quotes
-        d: ""                   ///// Write the option 4 inside double quotes
+        a: "The Temperature of the water after Combustion ",                  ///// Write the option 1 inside double quotes
+        b: "The Total Energy released per gram of fuel ",                  ///// Write the option 2 inside double quotes
+        c: "The Oxygen pressure used in the bomb",                  ///// Write the option 3 inside double quotes
+        d: " The water equivalent of the calorimeter"                   ///// Write the option 4 inside double quotes
       },
-      correctAnswer: "c"                ///// Write the correct option inside double quotes
+      correctAnswer: "b"                ///// Write the correct option inside double quotes
     },
 
     {
-      question: " ",  ///// Write the question inside double quotes
+      question: "During the expperiment ,if the temperature rise was than unexpected,what could be a possible cause? ",  ///// Write the question inside double quotes
       answers: {
-        a: "",                  ///// Write the option 1 inside double quotes
-        b: "",                  ///// Write the option 2 inside double quotes
-        c: "",                  ///// Write the option 3 inside double quotes
-        d: ""                   ///// Write the option 4 inside double quotes
+        a: "Excessive Oxygen Pressure ",                  ///// Write the option 1 inside double quotes
+        b: " Fuel Was not compeletly Combusted",                  ///// Write the option 2 inside double quotes
+        c: " More Water was added",                  ///// Write the option 3 inside double quotes
+        d: " THermometer was Calibrated"                   ///// Write the option 4 inside double quotes
       },
-      correctAnswer: ""                ///// Write the correct option inside double quotes
+      correctAnswer: "b"                ///// Write the correct option inside double quotes
     },                                  ///// To add more questions, copy the section below 
     									                  ///// this line
 
