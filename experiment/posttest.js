@@ -90,25 +90,25 @@
 
   const myQuestions = [
     {
-      question: "On increasing the radius of the steel ball to double its value the terminal velocity of the ball become box:",  ///// Write the question inside double quotes
+      question: "After performing the experiment, you calculate the GCV as 8500 J/g for a fuel. What does this value practically indicate?",  ///// Write the question inside double quotes
       answers: {
-        a: " double",                  ///// Write the option 1 inside double quotes
-        b: "four times",                  ///// Write the option 2 inside double quotes
-        c: "eight times",                  ///// Write the option 3 inside double quotes
-        d: "sixteen times"                   ///// Write the option 4 inside double quotes
+        a: " ",                  ///// Write the option 1 inside double quotes
+        b: "",                  ///// Write the option 2 inside double quotes
+        c: "",                  ///// Write the option 3 inside double quotes
+        d: ""                   ///// Write the option 4 inside double quotes
       },
-      correctAnswer: "b"                ///// Write the correct option inside double quotes
+      correctAnswer: "c"                ///// Write the correct option inside double quotes
     },
 
     {
-      question: " On increasing density of material of the falling ball its terminal velocity:",  ///// Write the question inside double quotes
+      question: " ",  ///// Write the question inside double quotes
       answers: {
-        a: "Increases",                  ///// Write the option 1 inside double quotes
-        b: "decreases",                  ///// Write the option 2 inside double quotes
-        c: "remains constant",                  ///// Write the option 3 inside double quotes
-        d: "NOT"                   ///// Write the option 4 inside double quotes
+        a: "",                  ///// Write the option 1 inside double quotes
+        b: "",                  ///// Write the option 2 inside double quotes
+        c: "",                  ///// Write the option 3 inside double quotes
+        d: ""                   ///// Write the option 4 inside double quotes
       },
-      correctAnswer: "a"                ///// Write the correct option inside double quotes
+      correctAnswer: ""                ///// Write the correct option inside double quotes
     },                                  ///// To add more questions, copy the section below 
     									                  ///// this line
 
