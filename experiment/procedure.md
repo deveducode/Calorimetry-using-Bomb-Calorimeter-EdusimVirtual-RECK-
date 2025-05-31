@@ -1,4 +1,6 @@
 ### Procedure
+
+![image alt](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/d9be8a774f24d4cc0c06760e84894fae1e3f60b6/experiment/Roadmap_page-0001.jpg)
 Preparation of the Sample:
 
 Accurately weigh a known mass (typically 1g) of the substance to be tested (e.g., benzoic acid or other combustible sample).
