@@ -1,4 +1,3 @@
-### Link your theory in here
 Calorimetry is the science of measuring the amount of heat released or absorbed during a chemical reaction. The bomb calorimeter is a laboratory device used to determine the calorific value of a fuel or substance by measuring the heat of combustion at constant volume. It operates based on the First Law of Thermodynamics, which states that energy cannot be created or destroyed, only transformed. In this experiment, a known mass of the fuel is burned in a sealed, high-pressure steel container called the bomb, which is filled with pure oxygen to ensure complete combustion. The bomb is submerged in a known quantity of water inside a calorimeter. The heat released during combustion increases the temperature of the water and the calorimeter body. This temperature rise is measured and used to calculate the energy content of the fuel.
 
 Principle of Bomb Calorimeter:
