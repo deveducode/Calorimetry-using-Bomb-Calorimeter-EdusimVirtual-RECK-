@@ -91,22 +91,22 @@
   const myQuestions = [
     {
       question: "1. What does the Gross Calorific Value (GCV) represent in a bomb calorimeter experiment?",
-      "answers": {
-        "a": " Heat absorbed by the bomb walls only",
-        "b": " Energy lost due to incomplete combustion",
-        "c": " Total heat released per gram of fuel, including heat from condensation",
-        "d": " Heat used only for raising temperature of the sample"                   ///// Write the option 4 inside double quotes
+      answers: {
+        a: " Heat absorbed by the bomb walls only",
+        b: " Energy lost due to incomplete combustion",
+        c: " Total heat released per gram of fuel, including heat from condensation",
+        d: " Heat used only for raising temperature of the sample"                   ///// Write the option 4 inside double quotes
       },
       correctAnswer: "c"                ///// Write the correct option inside double quotes
     },
 
     {
      question: " Why is the bomb calorimeter referred to as a constant volume calorimeter?",
-      "answers": {
-        "a": "Because the pressure inside remains constant",
-        "b": " Because the outer container doesn’t expand",
-        "c": "Because the combustion chamber is rigid and sealed",
-        "d": "Because the volume of water used remains the same"                 ///// Write the option 4 inside double quotes
+      answers: {
+        a: "Because the pressure inside remains constant",
+        b: " Because the outer container doesn’t expand",
+        c: "Because the combustion chamber is rigid and sealed",
+        d: "Because the volume of water used remains the same"                 ///// Write the option 4 inside double quotes
       },
       correctAnswer: "c"                ///// Write the correct option inside double quotes
     },     
