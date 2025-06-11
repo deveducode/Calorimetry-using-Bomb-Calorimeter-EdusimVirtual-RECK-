@@ -4,7 +4,7 @@ Principle of Bomb Calorimeter:
 The bomb calorimeter operates on the principle of constant-volume calorimetry, where the heat released by the combustion of a sample is absorbed by the surrounding water and the calorimeter itself. The temperature rise is then used to calculate the energy content of the sample.
 
 Construction and Working:-
-![image alt](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/899d52d9712ee3b61847bbca350c381714bae66e/experiment/theory.jpg)
+<img src="https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/main/experiment/images/construction_calorimetry.jpg?raw=true" height="500px" width="1000px">
 A typical bomb calorimeter consists of
 
 Combustion Chamber (Bomb): A strong steel container that holds the sample and oxygen.
