@@ -54,5 +54,5 @@ This equation is applied to determine the heat of combustion of the given sample
 
 ### 5. Storyboard
 
-![Image](https://github.com/user-attachments/assets/7d28caf9-bec8-4b4c-9c8e-6bbe9c03968b)
+<img src="https://github.com/user-attachments/assets/7d28caf9-bec8-4b4c-9c8e-6bbe9c03968b">
 
