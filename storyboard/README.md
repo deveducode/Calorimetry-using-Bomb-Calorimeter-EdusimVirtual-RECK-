@@ -47,7 +47,7 @@ This equation is applied to determine the heat of combustion of the given sample
 
 
 ### 3. Flowchart
-<img src="https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/7c98137aef3ca71004999c72580c82eb43ac1f74/storyboard/flowchart/flowchart.jpg" height="500px" width="500px">
+<img src="[experiment/images/flowchart_calorimeter.jpg](https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/main/experiment/images/flowchart_calorimeter.jpg)" height="500px" width="500px">
 
 ### 4. Mindmap
 <img src="https://github.com/deveducode/Calorimetry-using-Bomb-Calorimeter-EdusimVirtual-RECK-/blob/7b2fe5a6680982129db9865ab0631c5ad4e9138d/storyboard/mindmap/mindmap.jpg" height="500px" width="500px">
