@@ -21,7 +21,7 @@ Thermometer: Measures the temperature change of the water.
 
 Stirrer: Ensures uniform temperature distribution in the water.
 
-https://github.com/user-attachments/assets/8761638d-96ef-4613-85e7-ee9bac962b68
+<video src="https://github.com/user-attachments/assets/8761638d-96ef-4613-85e7-ee9bac962b68"></video>
 
 Working Procedure:-
 
